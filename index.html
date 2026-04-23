@@ -4,38 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental</title>
+    <title>Car Rental - Adventure Ready</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
     <nav class="navbar">
-        <div class="nav-logo">CarRent<span>Go</span></div>
+        <div class="nav-logo">Car<span>Rental</span></div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Cars</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#">Booking</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
     <aside class="sidebar">
-        <h3>Filter</h3>
-        <div class="sidebar-item">
-            <p>Category</p>
-            <ul>
-                <li><input type="checkbox"> SUV</li>
-                <li><input type="checkbox"> Sedan</li>
-                <li><input type="checkbox"> MPV</li>
-            </ul>
-        </div>
-        <div class="sidebar-item">
-            <p>Price Range</p>
-            <input type="range" min="100" max="1000">
+        <div class="sidebar-section">
+            <h3>Filter Mobil</h3>
+            <div class="filter-group">
+                <p>Tipe Transmisi</p>
+                <label><input type="checkbox"> Manual</label>
+                <label><input type="checkbox"> Automatic</label>
+            </div>
+            <div class="filter-group">
+                <p>Kapasitas</p>
+                <label><input type="radio" name="capacity"> 2-4 Orang</label>
+                <label><input type="radio" name="capacity"> 5-7 Orang</label>
+            </div>
+            <div class="filter-group">
+                <p>Harga Max</p>
+                <input type="range" min="200" max="2000" style="width: 100%;">
+            </div>
         </div>
     </aside>
 
     <div class="main-content">
+        
         <div id="search">
             <div class="title">
                 <h1>Car Rental</h1>
@@ -63,30 +69,32 @@
             </div>
         </div>
 
-        <div class="car-list">
-            <h2>Car List</h2>
-            <div class="car-item">
-                <img src="https://via.placeholder.com/300x200" alt="Car 1">
-                <h3>Car 1</h3>
-                <p>Car Detail</p>
-            </div>
-            <div class="car-item">
-                <img src="https://via.placeholder.com/300x200" alt="Car 2">
-                <h3>Car 2</h3>
-                <p>Car Detail</p>
-            </div>
-            <div class="car-item">
-                <img src="https://via.placeholder.com/300x200" alt="Car 2">
-                <h3>Car 3</h3>
-                <p>Car Detail</p>
-            </div>
-            <div class="car-item">
-                <img src="https://via.placeholder.com/300x200" alt="Car 2">
-                <h3>Car 4</h3>
-                <p>Car Detail</p>
+        <div class="car-list-container">
+            <div class="car-list">
+                <h2>Our Fleet</h2>
+                <div class="car-item">
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=500&auto=format&fit=crop" alt="Car 1">
+                    <h3>SUV Premium</h3>
+                    <p>Mulai dari Rp 500k / hari</p>
+                </div>
+                <div class="car-item">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=500&auto=format&fit=crop" alt="Car 2">
+                    <h3>Sport Sedan</h3>
+                    <p>Mulai dari Rp 800k / hari</p>
+                </div>
+                <div class="car-item">
+                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=500&auto=format&fit=crop" alt="Car 3">
+                    <h3>City Car</h3>
+                    <p>Mulai dari Rp 300k / hari</p>
+                </div>
+                <div class="car-item">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=500&auto=format&fit=crop" alt="Car 4">
+                    <h3>Family Van</h3>
+                    <p>Mulai dari Rp 450k / hari</p>
+                </div>
             </div>
         </div>
     </div>
-</body>
 
+</body>
 </html>
