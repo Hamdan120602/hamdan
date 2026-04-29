@@ -1,100 +1,308 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- =====================================================
+LUXE RENT ENTERPRISE — APPLE LEVEL UI v5
+CLEAN ARCHITECTURE + MOTION READY + FAST LOAD
+===================================================== -->
 
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rental - Adventure Ready</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LUXE RENT ENTERPRISE | Premium Car Rental</title>
+
+<meta name="description" content="Luxury car rental Indonesia dengan experience premium class, modern booking system, dan fleet eksklusif.">
+
+<!-- PERFORMANCE OPTIMIZATION -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
 
-    <nav class="navbar">
-        <div class="nav-logo">Car<span>Rental</span></div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Cars</a></li>
-            <li><a href="#">Booking</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+<!-- ================= APP LOADER ================= -->
+<div class="loader" id="loader">
+  <div class="loader-ring"></div>
+  <p>Loading Luxury Experience...</p>
+</div>
+
+<!-- ================= GLOBAL EFFECTS ================= -->
+<div class="cursor-glow"></div>
+
+<!-- ================= BACK TO TOP ================= -->
+<button class="top-btn" id="topBtn">
+  <i data-lucide="arrow-up"></i>
+</button>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+
+  <div class="container nav-wrap">
+
+    <a href="#home" class="logo">
+      LUXE<span>RENT</span>
+    </a>
+
+    <nav class="nav-menu">
+      <a href="#home">Home</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#services">Services</a>
+      <a href="#compare">Compare</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <aside class="sidebar">
-        <div class="sidebar-section">
-            <h3>Filter Mobil</h3>
-            <div class="filter-group">
-                <p>Tipe Transmisi</p>
-                <label><input type="checkbox"> Manual</label>
-                <label><input type="checkbox"> Automatic</label>
-            </div>
-            <div class="filter-group">
-                <p>Kapasitas</p>
-                <label><input type="radio" name="capacity"> 2-4 Orang</label>
-                <label><input type="radio" name="capacity"> 5-7 Orang</label>
-            </div>
-            <div class="filter-group">
-                <p>Harga Max</p>
-                <input type="range" min="200" max="2000" style="width: 100%;">
-            </div>
-        </div>
-    </aside>
+    <div class="nav-right">
 
-    <div class="main-content">
-        
-        <div id="search">
-            <div class="title">
-                <h1>Car Rental</h1>
-                <p>Find the perfect car for your next adventure</p>
-                <hr>
-            </div>
-            <div class="form-container">
-                <div class="form-group">
-                    <label for="pickup">Rental Location:</label>
-                    <select id="pickup" name="pickup">
-                        <option value="">Select Location</option>
-                        <option value="location1">Yogyakarta</option>
-                        <option value="location2">Bali</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="pickup-date">Rental Start Date:</label>
-                    <input type="date" id="pickup-date" name="pickup-date">
-                </div>
-                <div class="form-group">
-                    <label for="return-date">Rental End Date:</label>
-                    <input type="date" id="return-date" name="return-date">
-                </div>
-                <button type="submit">Search</button>
-            </div>
-        </div>
+      <button class="theme-btn" id="themeBtn">
+        <i data-lucide="moon"></i>
+      </button>
 
-        <div class="car-list-container">
-            <div class="car-list">
-                <h2>Our Fleet</h2>
-                <div class="car-item">
-                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=500&auto=format&fit=crop" alt="Car 1">
-                    <h3>SUV Premium</h3>
-                    <p>Mulai dari Rp 500k / hari</p>
-                </div>
-                <div class="car-item">
-                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=500&auto=format&fit=crop" alt="Car 2">
-                    <h3>Sport Sedan</h3>
-                    <p>Mulai dari Rp 800k / hari</p>
-                </div>
-                <div class="car-item">
-                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=500&auto=format&fit=crop" alt="Car 3">
-                    <h3>City Car</h3>
-                    <p>Mulai dari Rp 300k / hari</p>
-                </div>
-                <div class="car-item">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=500&auto=format&fit=crop" alt="Car 4">
-                    <h3>Family Van</h3>
-                    <p>Mulai dari Rp 450k / hari</p>
-                </div>
-            </div>
-        </div>
+      <button class="menu-btn" id="menuBtn">
+        <i data-lucide="menu"></i>
+      </button>
+
+      <button class="nav-btn" id="bookNowBtn">
+        Book Now
+      </button>
+
     </div>
+
+  </div>
+
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#fleet">Fleet</a>
+  <a href="#services">Services</a>
+  <a href="#compare">Compare</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+
+  <div class="container hero-grid">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-left">
+
+      <p class="eyebrow">PREMIUM ENTERPRISE EXPERIENCE</p>
+
+      <h1>
+        Luxury Mobility<br>
+        For Modern Indonesia
+      </h1>
+
+      <p class="hero-text">
+        Premium car rental dengan sistem booking modern, driver profesional,
+        dan pengalaman setara luxury brand global.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" id="exploreBtn">Explore Fleet</button>
+        <button class="btn-outline" id="offerBtn">Special Offers</button>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+
+        <div class="stat-box">
+          <h3 class="counter" data-target="2500">0</h3>
+          <p>Bookings</p>
+        </div>
+
+        <div class="stat-box">
+          <h3 class="counter" data-target="180">0</h3>
+          <p>Cars</p>
+        </div>
+
+        <div class="stat-box">
+          <h3 class="counter" data-target="98">0</h3>
+          <p>Satisfaction</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT BOOKING -->
+    <div class="hero-right">
+
+      <div class="booking-box glass-card" id="bookingBox">
+
+        <div class="booking-top">
+          <h3>Instant Booking</h3>
+          <span>24/7 Active</span>
+        </div>
+
+        <div class="field-group">
+          <label>City</label>
+          <input id="cityInput" type="text" placeholder="Jakarta / Bali / Bandung">
+        </div>
+
+        <div class="field-group">
+          <label>Pickup</label>
+          <input id="pickupDate" type="date">
+        </div>
+
+        <div class="field-group">
+          <label>Return</label>
+          <input id="returnDate" type="date">
+        </div>
+
+        <div class="field-group">
+          <label>Car Type</label>
+          <select id="carType">
+            <option>SUV</option>
+            <option>Sedan</option>
+            <option>Luxury</option>
+            <option>Sport</option>
+          </select>
+        </div>
+
+        <button class="search-btn shine-btn" id="searchBtn">
+          Search Cars
+        </button>
+
+        <p class="booking-note">
+          ✔ Fast confirmation • ✔ Premium fleet • ✔ Transparent pricing
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= BRANDS ================= -->
+<section class="brands">
+  <div class="container brands-wrap">
+    <span>Mercedes</span>
+    <span>BMW</span>
+    <span>Audi</span>
+    <span>Lexus</span>
+    <span>Porsche</span>
+    <span>Range Rover</span>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+<div class="container">
+
+  <div class="section-head">
+    <h2>Premium Services</h2>
+    <p>Luxury transport solutions for every need.</p>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-box">
+      <i data-lucide="briefcase"></i>
+      <h3>Business Trip</h3>
+    </div>
+
+    <div class="service-box">
+      <i data-lucide="plane"></i>
+      <h3>Airport Transfer</h3>
+    </div>
+
+    <div class="service-box">
+      <i data-lucide="heart"></i>
+      <h3>Wedding</h3>
+    </div>
+
+    <div class="service-box">
+      <i data-lucide="map"></i>
+      <h3>Travel</h3>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ================= FLEET ================= -->
+<section class="section dark-section" id="fleet">
+<div class="container">
+
+  <div class="section-head">
+    <h2>Luxury Fleet</h2>
+    <p>Choose your premium vehicle</p>
+  </div>
+
+  <div class="fleet-grid">
+
+    <article class="car-card">
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf">
+      <div class="card-content">
+        <h3>Range Rover</h3>
+        <div class="price-row">
+          <strong>Rp 5.5jt</strong>
+          <button>Pilih</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="car-card">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+      <div class="card-content">
+        <h3>Mercedes S-Class</h3>
+        <div class="price-row">
+          <strong>Rp 4.8jt</strong>
+          <button>Pilih</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+<div class="container">
+
+  <div class="section-head">
+    <h2>Contact</h2>
+  </div>
+
+  <form class="contact-form" id="contactForm">
+
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+
+    <button class="btn-primary">Send</button>
+
+  </form>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Luxe Rent Enterprise</p>
+  </div>
+</footer>
+
+<script>
+lucide.createIcons();
+</script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
