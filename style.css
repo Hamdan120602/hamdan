@@ -4,14 +4,13 @@
   --stroke:rgba(255,255,255,0.08);
   --text:#ffffff;
   --muted:#9aa4b2;
-  --gold:#f7c873;
   --accent:#ff5e3a;
+  --gold:#f7c873;
 
-  --radius:22px;
+  --radius:20px;
+  --shadow:0 30px 80px rgba(0,0,0,0.5);
 
-  --shadow:
-    0 20px 60px rgba(0,0,0,0.45),
-    0 2px 10px rgba(0,0,0,0.2);
+  --blur:20px;
 }
 
 /* ================= RESET ================= */
@@ -29,17 +28,13 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= GLASS SYSTEM ================= */
-.glass-card{
-  background:var(--panel);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border:1px solid var(--stroke);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+/* ================= CONTAINER ================= */
+.container{
+  width:min(92%,1200px);
+  margin:auto;
 }
 
-/* ================= LOADER (APPLE STYLE) ================= */
+/* ================= LOADER ================= */
 .loader{
   position:fixed;
   inset:0;
@@ -47,8 +42,8 @@ body{
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  background:#05070f;
-  z-index:99999;
+  background:var(--bg);
+  z-index:9999;
 }
 
 .loader-ring{
@@ -64,33 +59,21 @@ body{
   to{transform:rotate(360deg);}
 }
 
-.loader p{
-  margin-top:14px;
-  color:var(--muted);
-  font-size:14px;
-  letter-spacing:0.5px;
-}
-
-/* ================= NAVBAR (APPLE FLOAT) ================= */
+/* ================= NAVBAR ================= */
 .navbar{
   position:sticky;
   top:0;
-  z-index:999;
-  padding:16px 0;
-  transition:0.4s ease;
+  z-index:1000;
+  padding:14px 0;
+  backdrop-filter:blur(var(--blur));
   background:rgba(5,7,15,0.6);
-  backdrop-filter: blur(20px);
   border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:0.4s ease;
 }
 
 .navbar.scrolled{
   background:rgba(5,7,15,0.85);
   box-shadow:0 10px 40px rgba(0,0,0,0.3);
-}
-
-.container{
-  width:min(92%,1200px);
-  margin:auto;
 }
 
 .nav-wrap{
@@ -99,36 +82,40 @@ body{
   align-items:center;
 }
 
-/* ================= LOGO ================= */
+/* LOGO */
 .logo{
   font-weight:800;
-  letter-spacing:1px;
   font-size:1.2rem;
+  letter-spacing:1px;
 }
 
 .logo span{
   color:var(--accent);
 }
 
-/* ================= NAV LINKS ================= */
+/* NAV */
+.nav-menu{
+  display:flex;
+  gap:18px;
+}
+
 .nav-menu a{
-  margin:0 12px;
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
-  transition:0.3s;
   position:relative;
+  transition:0.3s;
 }
 
 .nav-menu a:hover{
-  color:white;
+  color:#fff;
 }
 
 .nav-menu a::after{
   content:"";
   position:absolute;
-  bottom:-6px;
   left:0;
+  bottom:-5px;
   width:0;
   height:2px;
   background:var(--gold);
@@ -139,7 +126,13 @@ body{
   width:100%;
 }
 
-/* ================= BUTTON SYSTEM ================= */
+/* RIGHT BUTTONS */
+.nav-right{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
 button{
   cursor:pointer;
   transition:0.25s ease;
@@ -150,21 +143,26 @@ button:hover{
   transform:translateY(-2px);
 }
 
+/* ================= BUTTON STYLE ================= */
 .btn-primary{
   background:linear-gradient(135deg,var(--accent),var(--gold));
-  color:black;
+  color:#000;
   padding:12px 18px;
   border-radius:14px;
   font-weight:600;
-  box-shadow:0 10px 30px rgba(255,94,58,0.25);
+  box-shadow:0 10px 30px rgba(255,94,58,0.2);
 }
 
 .btn-outline{
   background:transparent;
   border:1px solid var(--stroke);
-  color:white;
+  color:#fff;
   padding:12px 18px;
   border-radius:14px;
+}
+
+.full{
+  width:100%;
 }
 
 /* ================= HERO ================= */
@@ -187,19 +185,19 @@ button:hover{
 
 .hero-text{
   color:var(--muted);
-  margin:16px 0 28px;
+  margin:15px 0 25px;
 }
 
-/* ================= STATS (FLOAT CARD) ================= */
-.stats-grid{
+/* ================= STATS ================= */
+.stats{
   display:flex;
-  gap:14px;
+  gap:12px;
   margin-top:20px;
 }
 
-.stat-box{
+.stats div{
   flex:1;
-  padding:16px;
+  padding:14px;
   border-radius:16px;
   background:var(--panel);
   border:1px solid var(--stroke);
@@ -207,75 +205,36 @@ button:hover{
   transition:0.3s;
 }
 
-.stat-box:hover{
+.stats div:hover{
   transform:translateY(-5px);
 }
 
-/* ================= BOOKING BOX ================= */
+/* ================= BOOKING ================= */
 .booking-box{
   padding:24px;
   border-radius:24px;
-  animation:floatBox 6s ease-in-out infinite;
-}
-
-@keyframes floatBox{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
-}
-
-.field-group{
-  margin-bottom:14px;
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  backdrop-filter:blur(var(--blur));
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
 input,select,textarea{
-  width:100%;
   padding:12px;
   border-radius:12px;
   border:1px solid var(--stroke);
   background:rgba(0,0,0,0.2);
-  color:white;
+  color:#fff;
   outline:none;
   transition:0.3s;
 }
 
 input:focus,select:focus,textarea:focus{
   border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(247,200,115,0.1);
-}
-
-/* ================= HERO ACTION ================= */
-.hero-actions{
-  display:flex;
-  gap:12px;
-}
-
-/* ================= CARDS ================= */
-.car-card{
-  background:var(--panel);
-  border:1px solid var(--stroke);
-  border-radius:22px;
-  overflow:hidden;
-  transition:0.4s ease;
-}
-
-.car-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 30px 80px rgba(0,0,0,0.5);
-}
-
-.car-card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-/* ================= BRAND SCROLL ================= */
-.brands-wrap{
-  display:flex;
-  gap:30px;
-  justify-content:center;
-  opacity:0.6;
-  font-size:14px;
+  box-shadow:0 0 0 3px rgba(247,200,115,0.15);
 }
 
 /* ================= SECTION ================= */
@@ -283,86 +242,48 @@ input:focus,select:focus,textarea:focus{
   padding:90px 0;
 }
 
-.section-head{
+.section-title{
   text-align:center;
   margin-bottom:40px;
 }
 
-/* ================= MOBILE MENU ================= */
-.mobile-menu{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.9);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+.section-title h2{
+  font-size:2rem;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
-  opacity:0;
-  pointer-events:none;
-  transition:0.3s;
 }
 
-.mobile-menu.show{
-  opacity:1;
-  pointer-events:auto;
-}
-
-/* ================= TOP BUTTON ================= */
-.top-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background:var(--gold);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  transform:translateY(20px);
-  transition:0.3s;
-}
-
-.top-btn.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= TOAST ================= */
-.toast{
-  position:fixed;
-  bottom:30px;
-  right:30px;
-  background:rgba(0,0,0,0.85);
-  padding:14px 18px;
-  border-radius:12px;
+/* ================= CARD ================= */
+.card{
+  padding:20px;
+  border-radius:20px;
+  background:var(--panel);
   border:1px solid var(--stroke);
-  transform:translateY(20px);
-  opacity:0;
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:var(--shadow);
+}
+
+/* ================= SERVICE BOX ================= */
+.box{
+  padding:18px;
+  border-radius:16px;
+  background:var(--panel);
+  border:1px solid var(--stroke);
+  text-align:center;
   transition:0.3s;
 }
 
-.toast.show{
-  transform:translateY(0);
-  opacity:1;
-}
-
-/* ================= SCROLL ANIMATION ================= */
-.car-card,
-.stat-box,
-.service-box{
-  opacity:0;
-  transform:translateY(20px);
-  transition:0.6s ease;
-}
-
-.car-card.show,
-.stat-box.show,
-.service-box.show{
-  opacity:1;
-  transform:translateY(0);
+.box:hover{
+  transform:translateY(-5px);
 }
 
 /* ================= MOBILE ================= */
