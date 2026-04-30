@@ -10,23 +10,18 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo">Car<span>Rental</span></div>
-        
-        <!-- Fitur Theme Switcher Baru -->
-        <div class="theme-switcher">
-            <button onclick="setTheme('default')" class="dot white" title="Putih"></button>
-            <button onclick="setTheme('dark')" class="dot black" title="Hitam"></button>
-            <button onclick="setTheme('grey')" class="dot grey" title="Abu-abu"></button>
-            <button onclick="setTheme('yellow')" class="dot yellow" title="Kuning"></button>
-            <button onclick="setTheme('green')" class="dot green" title="Hijau"></button>
+        <!-- Container Kiri: Logo dan Switcher Warna -->
+        <div class="nav-container-left">
+            <div class="nav-logo">Car<span>Rental</span></div>
+            
+            <div class="theme-switcher">
+                <button onclick="setTheme('default')" class="dot red" title="Tema Merah (Default)"></button>
+                <button onclick="setTheme('yellow')" class="dot yellow" title="Tema Kuning"></button>
+                <button onclick="setTheme('green')" class="dot green" title="Tema Hijau"></button>
+            </div>
         </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
+        <!-- Menu Navigasi (Kanan) -->
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">Cars</a></li>
@@ -34,9 +29,17 @@
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
+
+        <!-- Tombol Mobile (Hanya muncul di layar kecil) -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 
     <main class="main-content">
+        <!-- Hero Section & Search Form -->
         <section id="search">
             <div class="title">
                 <h1>Car Rental</h1>
@@ -47,25 +50,26 @@
             <div class="form-container">
                 <div class="form-group">
                     <label>Lokasi</label>
-                    <select>
-                        <option>Pilih Lokasi</option>
-                        <option>Bali</option>
-                        <option>Yogyakarta</option>
-                        <option>Jakarta</option>
+                    <select id="inputLokasi">
+                        <option value="">Pilih Lokasi</option>
+                        <option value="Bali">Bali</option>
+                        <option value="Yogyakarta">Yogyakarta</option>
+                        <option value="Jakarta">Jakarta</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Tgl Jemput</label>
-                    <input type="date">
+                    <input type="date" id="inputJemput">
                 </div>
                 <div class="form-group">
                     <label>Tgl Kembali</label>
-                    <input type="date">
+                    <input type="date" id="inputKembali">
                 </div>
                 <button id="searchBtn">Search</button>
             </div>
         </section>
 
+        <!-- Unit List -->
         <section class="car-list-container">
             <div class="car-list">
                 <div class="car-item">
@@ -100,13 +104,13 @@
             </div>
         </section>
 
+        <!-- Testimonials -->
         <section id="reviews" class="reviews-container">
             <div class="section-title">
                 <h2>Apa Kata Mereka?</h2>
                 <p>Ulasan jujur dari pelanggan setia kami</p>
             </div>
             <div class="reviews-grid">
-                <!-- Review Card 1 -->
                 <div class="review-card">
                     <div class="reviewer-info">
                         <img src="https://ui-avatars.com/api/?name=Purnomo&background=ff5722&color=fff" alt="Purnomo">
@@ -117,7 +121,6 @@
                     </div>
                     <p>"Pelayanan mantap, unit SUV Premium-nya sangat bersih dan wangi. Sangat direkomendasikan!"</p>
                 </div>
-                <!-- Review Card 2 -->
                 <div class="review-card">
                     <div class="reviewer-info">
                         <img src="https://ui-avatars.com/api/?name=Johan+Purnomo&background=03a9f4&color=fff" alt="Johan Purnomo">
@@ -131,6 +134,7 @@
             </div>
         </section>
 
+        <!-- Accordion FAQ -->
         <section id="faq" class="faq-container">
             <h2>Kenapa Rental di Sini?</h2>
             <div class="faq-item">
@@ -152,6 +156,7 @@
         <p>&copy; 2026 CarRental Adventure. All rights reserved.</p>
     </footer>
 
+    <!-- WhatsApp Floating Action Button -->
     <a href="https://wa.me/6281215726275?text=Halo%20Admin" class="whatsapp-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
