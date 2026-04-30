@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JogjaTravel - Premium Experience</title>
+    <style>
+        /* CSS INTERNAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* 1. Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 8%;
+            background-color: #ffffff79;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: #007bff; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #444; font-weight: 600; }
+
+        /* 2. Hero Section & Transparent Search Form */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://travelspromo.com/wp-content/uploads/2019/12/Tugu-Jogja-Simbol-Kota-Jogja-Meltyan-Photography.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* FORM TRANSPARAN (GLASSMORPHISM) */
+        .search-container {
+            width: 100%;
+            max-width: 650px;
+            /* Efek Transparan Blur */
+            background: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-container input {
+            flex: 1;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1.05rem;
+            /* Input juga sedikit transparan saat tidak fokus */
+            background: rgba(255, 255, 255, 0.9);
+            transition: 0.3s ease;
+        }
+
+        .search-container input:focus {
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+        }
+
+        .search-btn {
+            padding: 0 35px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        /* 3. Floating WhatsApp Button */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transition: 0.3s;
+        }
+
+        .wa-float:hover {
+            background-color: #1eb954;
+            transform: scale(1.05);
+        }
+
+        .wa-icon { width: 25px; height: 25px; }
+
+        /* 4. Body: Destinasi */
+        .main-content { padding: 60px 8%; text-align: center; background-color: #a4c8ec; }
+        .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;}
+        .card { border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); color: white; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-toska { background-color: #00ced1; }
+        .card-red { background-color: #e63946; }
+        .card-green { background-color: #2a9d8f; }
+        .card-img { height: 220px; width: 100%; object-fit: cover; }
+        .card-body { padding: 25px; }
+
+        /* 5. Ulasan */
+        .reviews-section { padding: 60px 8%; text-align: center; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .review-card { padding: 20px; border: 1px solid #ffb9b9; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .stars { color: #ffc107; }
+
+        /* 6. FAQ Section */
+        .faq-section { padding: 80px 8%; background: #fff0ae; }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-container h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; color: #222; }
+        details { background: #fffdfd; margin-bottom: 12px; padding: 18px; border-radius: 12px; border: 1px solid #ddd; cursor: pointer; text-align: left; transition: 0.3s; }
+        details:hover { border-color: #007bff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        summary { font-weight: bold; font-size: 1.1rem; list-style: none; position: relative; padding-right: 20px; }
+        summary::after { content: '+'; position: absolute; right: 0; color: #007bff; }
+        details[open] summary::after { content: '-'; }
+        details p { margin-top: 12px; color: #555; line-height: 1.6; border-top: 1px solid #ee0000; padding-top: 10px; }
+
+        footer { background: #282828; color: rgb(255, 255, 255); padding: 40px 8%; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <!-- Tombol WhatsApp Floating -->
+    <a href="https://wa.me/6281236258210" target="_blank" class="wa-float">
+        <img src="https://static.vecteezy.com/system/resources/previews/016/716/468/original/whatsapp-icon-free-png.png" alt="WA" class="wa-icon">
+        Tanya Admin
+    </a>
+
+    <header>
+        <div class="logo">JogjaTravel</div>
+        <nav>
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#destinasi">Destinasi</a></li>
+                <li><a href="#ulasan">Ulasan</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Liburan Nyaman di Yogyakarta</h1>
+        
+        <!-- Search Form Transparan -->
+        <form class="search-container">
+            <input type="text" placeholder="Cari destinasi atau paket wisata...">
+            <button type="submit" class="search-btn">Cari</button>
+        </form>
+    </section>
+
+    <!-- Destinasi -->
+    <main id="destinasi" class="main-content">
+        <h2>Paket Destinasi Populer</h2>
+        <div class="package-grid">
+            <div class="card card-toska">
+                <img src="https://nagantour.com/wp-content/uploads/2023/08/tugu-jogjakarta.webp" alt="Tugu" class="card-img">
+                <div class="card-body"><h3>Wisata Sejarah Tugu</h3><p>Ikon budaya Yogyakarta.</p></div>
+            </div>
+            <div class="card card-red">
+                <img src="https://3.bp.blogspot.com/-vfEv_200R94/Uh0IoJHmquI/AAAAAAAABpc/_2KhQ-VAFx0/s1600/MERAPI1.jpg" alt="Merapi" class="card-img">
+                <div class="card-body"><h3>Merapi Adventure</h3><p>Serunya Jeep Lava Tour.</p></div>
+            </div>
+            <div class="card card-green">
+                <img src="https://i.ytimg.com/vi/2DodevfhKiw/maxresdefault.jpg" alt="Kraton" class="card-img">
+                <div class="card-body"><h3>Kraton & Taman Sari</h3><p>Istana Air nan eksotis.</p></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Ulasan -->
+    <section id="ulasan" class="reviews-section">
+        <h2>Ulasan Pelanggan</h2>
+        <div class="review-grid">
+            <div class="review-card"><div class="stars">★★★★★</div><p>"Sangat profesional!"</p><strong>Muhammad Faturahman</strong></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>"Jeep Merapi mantap."</p><strong>Nikolaus Kuai</strong></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>"Keluarga senang."</p><strong>Johan Purnomo</strong></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>"Sangat ramah."</p><strong>Purnomo</strong></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>"Honeymoon terbaik."</p><strong>Fediansyah</strong></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>"tempat mencari pusaka leluhur."</p><strong>Thomas Aquino Sanga Ola</strong></div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="faq-container">
+            <h2>Pertanyaan Umum (FAQ)</h2>
+            <details>
+                <summary>Bagaimana cara melakukan pemesanan paket wisata?</summary>
+                <p>Pemesanan dapat dilakukan dengan mudah melalui tombol WhatsApp di pojok kanan bawah. Admin kami akan membantu Anda menyusun jadwal dan rincian biaya.</p>
+            </details>
+            <details>
+                <summary>Apakah harga paket sudah termasuk tiket masuk objek wisata?</summary>
+                <p>Ya, seluruh harga paket yang tertera sudah termasuk tiket masuk (retribusi) ke semua objek wisata yang ada dalam rincian perjalanan Anda.</p>
+            </details>
+            <details>
+                <summary>Apakah transportasi yang digunakan sudah termasuk supir dan BBM?</summary>
+                <p>Tentu saja. Semua paket kami sudah termasuk unit kendaraan yang bersih, supir berpengalaman sebagai pemandu, serta biaya bahan bakar (BBM).</p>
+            </details>
+            <details>
+                <summary>Bisa kah kami menentukan rute perjalanan sendiri (Custom)?</summary>
+                <p>Sangat bisa! Kami sangat fleksibel dalam penyusunan rute. Anda cukup menginformasikan tempat mana saja yang ingin dikunjungi kepada admin kami.</p>
+            </details>
+            <details>
+                <summary>Apakah ada biaya tambahan tersembunyi selama perjalanan?</summary>
+                <p>Tidak ada biaya tersembunyi. Biaya yang Anda bayar sudah mencakup fasilitas yang disepakati. Biaya pribadi seperti belanja oleh-oleh atau makan di luar paket menjadi tanggung jawab peserta.</p>
+            </details>
+            <details>
+                <summary>Kapan waktu terbaik untuk berkunjung ke Yogyakarta?</summary>
+                <p>Yogyakarta indah sepanjang tahun. Namun, musim kemarau (April - Oktober) sangat disarankan untuk kunjungan ke Merapi atau pantai agar mendapatkan pemandangan langit yang cerah.</p>
+            </details>
+            <details>
+                <summary>Apakah tersedia paket untuk rombongan besar (Gathering)?</summary>
+                <p>Kami melayani grup skala kecil hingga besar (Bus Pariwisata). Kami juga menyediakan paket Gathering Perusahaan dengan fasilitas dokumentasi lengkap.</p>
+            </details>
+            <details>
+                <summary>Bagaimana kebijakan pembatalan atau perubahan jadwal?</summary>
+                <p>Perubahan jadwal dapat dilakukan maksimal 3 hari sebelum keberangkatan (tergantung ketersediaan). Untuk pembatalan, kebijakan pengembalian dana mengikuti syarat dan ketentuan yang berlaku.</p>
+            </details>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 JogjaTravel Agent. Teman Perjalanan Wisata Anda.</p>
+    </footer>
+
+</body>
+</html>
