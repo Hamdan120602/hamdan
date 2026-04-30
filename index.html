@@ -1,196 +1,161 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>LUXE RENT ENTERPRISE | Apple Motion V7</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-
-<script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Adventure Ready</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- ================= LOADER ================= -->
-<div class="loader" id="loader">
-  <div class="loader-ring"></div>
-  <p>Loading Apple Motion Experience...</p>
-</div>
+    <nav class="navbar">
+        <div class="nav-logo">Car<span>Rental</span></div>
+        
+        <!-- Fitur Theme Switcher Baru -->
+        <div class="theme-switcher">
+            <button onclick="setTheme('default')" class="dot white" title="Putih"></button>
+            <button onclick="setTheme('dark')" class="dot black" title="Hitam"></button>
+            <button onclick="setTheme('grey')" class="dot grey" title="Abu-abu"></button>
+            <button onclick="setTheme('yellow')" class="dot yellow" title="Kuning"></button>
+            <button onclick="setTheme('green')" class="dot green" title="Hijau"></button>
+        </div>
 
-<!-- ================= CURSOR ================= -->
-<div class="cursor-glow"></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-<!-- ================= NAVBAR ================= -->
-<header class="navbar" id="navbar">
-  <div class="container nav-wrap">
-
-    <div class="logo">
-      LUXE<span>RENT</span>
-    </div>
-
-    <nav class="nav-menu">
-      <a href="#home">Home</a>
-      <a href="#fleet">Fleet</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Cars</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
 
-    <div class="nav-right">
-      <button id="themeBtn"><i data-lucide="moon"></i></button>
-      <button id="menuBtn"><i data-lucide="menu"></i></button>
-      <button class="nav-btn">Book Now</button>
-    </div>
+    <main class="main-content">
+        <section id="search">
+            <div class="title">
+                <h1>Car Rental</h1>
+                <p>Find your perfect ride</p>
+                <hr>
+            </div>
 
-  </div>
-</header>
+            <div class="form-container">
+                <div class="form-group">
+                    <label>Lokasi</label>
+                    <select>
+                        <option>Pilih Lokasi</option>
+                        <option>Bali</option>
+                        <option>Yogyakarta</option>
+                        <option>Jakarta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tgl Jemput</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>Tgl Kembali</label>
+                    <input type="date">
+                </div>
+                <button id="searchBtn">Search</button>
+            </div>
+        </section>
 
-<!-- ================= MOBILE MENU ================= -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#home">Home</a>
-  <a href="#fleet">Fleet</a>
-  <a href="#services">Services</a>
-  <a href="#contact">Contact</a>
-</div>
+        <section class="car-list-container">
+            <div class="car-list">
+                <div class="car-item">
+                    <span class="status-badge">Available</span>
+                    <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf" alt="SUV">
+                    <div class="car-info">
+                        <h3>SUV Premium</h3>
+                        <p class="price">Rp 500k <span>/ hari</span></p>
+                        <button class="btn-book">Sewa Sekarang</button>
+                    </div>
+                </div>
 
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-  <div class="container hero-grid">
+                <div class="car-item">
+                    <span class="status-badge">Available</span>
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70" alt="Sport">
+                    <div class="car-info">
+                        <h3>Sport Sedan</h3>
+                        <p class="price">Rp 800k <span>/ hari</span></p>
+                        <button class="btn-book">Sewa Sekarang</button>
+                    </div>
+                </div>
 
-    <div class="hero-left">
-      <p class="eyebrow">APPLE MOTION EXPERIENCE</p>
+                <div class="car-item">
+                    <span class="status-badge rented">Rented</span>
+                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8" alt="City">
+                    <div class="car-info">
+                        <h3>City Car</h3>
+                        <p class="price">Rp 300k <span>/ hari</span></p>
+                        <button class="btn-book">Sewa Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <h1>
-        Luxury Mobility<br>
-        For Modern Indonesia
-      </h1>
+        <section id="reviews" class="reviews-container">
+            <div class="section-title">
+                <h2>Apa Kata Mereka?</h2>
+                <p>Ulasan jujur dari pelanggan setia kami</p>
+            </div>
+            <div class="reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://ui-avatars.com/api/?name=Purnomo&background=ff5722&color=fff" alt="Purnomo">
+                        <div>
+                            <h4>Purnomo</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p>"Pelayanan mantap, unit SUV Premium-nya sangat bersih dan wangi. Sangat direkomendasikan!"</p>
+                </div>
+                <!-- Review Card 2 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="https://ui-avatars.com/api/?name=Johan+Purnomo&background=03a9f4&color=fff" alt="Johan Purnomo">
+                        <div>
+                            <h4>Johan Purnomo</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <p>"Proses booking cepat dan tidak ribet. Terima kasih sudah membantu perjalanan saya di Bali."</p>
+                </div>
+            </div>
+        </section>
 
-      <p class="hero-text">
-        Premium car rental dengan pengalaman enterprise, desain modern,
-        dan sistem booking real-time.
-      </p>
+        <section id="faq" class="faq-container">
+            <h2>Kenapa Rental di Sini?</h2>
+            <div class="faq-item">
+                <button class="faq-question">Harga Transparan & Murah? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Kami menjamin tidak ada biaya tersembunyi. Semua harga yang tertera sudah termasuk asuransi dasar dan pajak.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Kondisi Mobil Terjamin? <span>+</span></button>
+                <div class="faq-answer">
+                    <p>Semua armada kami rutin diservis di bengkel resmi dan dibersihkan sebelum diserahkan kepada penyewa.</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <div class="hero-actions">
-        <button id="exploreBtn" class="btn-primary">Explore Fleet</button>
-        <button class="btn-outline">Offers</button>
-      </div>
+    <footer class="footer">
+        <p>&copy; 2026 CarRental Adventure. All rights reserved.</p>
+    </footer>
 
-      <div class="stats">
-        <div><h3 class="counter" data-target="2500">0</h3><p>Bookings</p></div>
-        <div><h3 class="counter" data-target="180">0</h3><p>Cars</p></div>
-        <div><h3 class="counter" data-target="98">0</h3><p>Rating</p></div>
-      </div>
-    </div>
+    <a href="https://wa.me/6281215726275?text=Halo%20Admin" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
 
-    <div class="hero-right">
-
-      <div class="booking-box" id="bookingBox">
-
-        <h3>Instant Booking</h3>
-
-        <input id="city" type="text" placeholder="City">
-        <input id="pickup" type="date">
-        <input id="return" type="date">
-
-        <select id="type">
-          <option>SUV</option>
-          <option>Sedan</option>
-          <option>Luxury</option>
-        </select>
-
-        <button id="searchBtn" class="btn-primary full">Search Cars</button>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= FLEET ================= -->
-<section class="section" id="fleet">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Premium Fleet</h2>
-      <p>Choose your luxury experience</p>
-    </div>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Mercedes S-Class</h3>
-        <p>Executive Luxury</p>
-      </div>
-
-      <div class="card">
-        <h3>Range Rover</h3>
-        <p>Luxury SUV</p>
-      </div>
-
-      <div class="card">
-        <h3>Porsche 911</h3>
-        <p>Sport Performance</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="section dark" id="services">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Services</h2>
-    </div>
-
-    <div class="grid">
-
-      <div class="box">Business Trip</div>
-      <div class="box">Airport Transfer</div>
-      <div class="box">Wedding Car</div>
-      <div class="box">Tour Travel</div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="section" id="contact">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Contact</h2>
-    </div>
-
-    <form id="form">
-
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message"></textarea>
-
-      <button class="btn-primary">Send</button>
-
-    </form>
-
-  </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <p>© 2026 Luxe Rent Enterprise</p>
-</footer>
-
-<script>
-lucide.createIcons();
-</script>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
